@@ -150,8 +150,53 @@ let numbers1 = [10, 20, 30];
 
 console.log(numbers1) // [10,30,20]
 
+// Maps and Sets
 
-  
+// quick question # 1
+new Set([1, 1, 2, 2, 3, 4]); //{1,2,3,4}
+
+// quick question # 2
+[...new Set("referee")].join(""); // "ref"
+
+// quick question # 3
+
+let m = new Map();
+m.set([1,2,3], true); 
+m.set([1, 2, 3], false); 
+
+// returns:  Map(2) {Array(3) => true, Array(3) => false}
+
+// hasDuplicates
+
+
+
+const hasDuplicate = arr => new Set(arr).size !== arr.length;
+
+hasDuplicate([1,3,2,1]) // true
+hasDuplicate([1,5,-1,4]) // false
+
+//vowelCount
+
+
+function isVowel(char) {
+    return 'aeiou'.includes(char);
+}
+
+const vowelCount = (str) => {
+    const vowelMap = new Map();
+    for (let char of str) {
+        let lowerCasechar = char.toLowerCase();
+        if (isVowel(lowerCasechar)) {
+            if (vowelMap.has(lowerCasechar)) {
+                vowelMap.set(lowerCasechar, vowelMap.get(lowerCasechar) + 1);
+            } else {
+                vowelMap.set(lowerCasechar, 1);
+            }
+        }
+    }
+    return vowelMap;
+
+}
 
 
 
